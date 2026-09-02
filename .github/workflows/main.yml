@@ -27,17 +27,21 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Build static site
+   - name: Build static site
         env:
           PORT: 4173
-          BASE_PATH: /
+          BASE_PATH: /${{ github.event.repository.name }}/
           VITE_GITHUB_REPO: ${{ github.repository }}
           VITE_GITHUB_APPROVED_LABEL: approved
         run: pnpm --filter @workspace/quiet-press run build
+      - name: Support client-side routes
+        run: cp artifacts/quiet-press/dist/public/index.html artifacts/quiet-press/dist/public/404.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: artifacts/quiet-press/dist/public
+
+    
   deploy:
     needs: build
     runs-on: ubuntu-latest
