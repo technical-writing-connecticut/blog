@@ -1,4 +1,4 @@
-name: Deploy Quiet Press
+name: Deploy Quiet Press CMS
 on:
   push:
     branches: [main]
