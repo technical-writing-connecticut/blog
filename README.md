@@ -1,4 +1,4 @@
-# Quiet Press
+# Quiet Press CMS
 
 Quiet Press is a small, text-first blog that can run as a static GitHub Pages site.
 Posts live in the frontend's local content data, and comments use public GitHub
