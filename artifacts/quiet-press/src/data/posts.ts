@@ -33,10 +33,10 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
 export const posts: Post[] = [
   {
     slug: 'attention-is-a-place',
-    title: 'Attention is a place 2',
-    dek: 'A small argument for making the work easier to return to.',
+    title: 'I Built An Application Programming Interface (API) to Document One',
+    dek: 'I taught myself how to document an API by creating my own with Replit's Artificial Intelligence (AI) agent.',
     status: 'published',
-    author: 'Mara Ellison',
+    author: 'Jay',
     readTime: 7,
     tags: ['Work', 'Rituals'],
     publishedAt: '2024-06-12',
