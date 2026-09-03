@@ -45,7 +45,7 @@ export const posts: Post[] = [
 
     API Documentation. As I look for my next role in technical writing, I read job posting after job posting looking for someone to create developer-facing documentation. Most of my experience in technical writing, up until now, has had a focus of client-facing documentation. Knowledge base articles. Product announcement emails. I crafted sentence after sentence to make complex software easy to use for non-technical (or at least non-developer) audiences. Always from the User Interface (UI) of the software, never the Application Programming Interface (API). I recently decided to change that, as I had built some side projects, and I could (or at least Replit could) create APIs out of them.
 
-    ## Keys and Endpoints
+  ## Keys and Endpoints
 
     Enter Job Finder. As part of my own job search, I built an aggregation tool that would search through company websites to scan for open postings for technical writing and adjacent fields. To build the API, I just prompted Replit's AI agent to build the API for the app, and then I pushed the changes to the app to deployment. Easy. Now for the documentation part. I wasn't sure of the best way to document an API so I asked Replit to create an outline for the documentation but not to fill out the details. I ended up with the following sections: Base URL, Authentication, Quick Start, Endpoints, Errors, Rate Limits, Data Freshness, and Contact. To authenticate with the app, users would request and API key from me, but, in reality, the API was really meant for me for documentation purposes, so I created a key for myself. The user (or me) would authenticate this way:
 
