@@ -86,15 +86,15 @@ export const posts: Post[] = [
 
   To test the less-than-idea use cases, I made my own mistakes to experience the errors for myself. After all, not everything goes according to plan, and someone newer to APIs like me is prone to make mistakes every now and then. For instance, I tried pulling some information using an endpoint that didn't exist and received:
 
-  \`\`\` {
+  \`\`\` 
+  \`\`\`
+{
       "error": {
           "code": "NOT_FOUND",
           "message": "The requested public API endpoint does not exist."
       }
   }
-  \`\`\`
 
-  And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
 
   \`\`\` {
       "error": {
@@ -104,6 +104,8 @@ export const posts: Post[] = [
   }
    \`\`\`
 
+  And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
+  
   ## Lessons
 
   All in all, I think my first experience with documenting APIs was a success. I think if I had to take any lessons away from it:
