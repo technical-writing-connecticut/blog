@@ -131,9 +131,7 @@ export function getPost(slug?: string) {
   return posts.find((post) => post.slug === slug);
 }
 
-      heading('The return'),
-      p({ type: 'text', value: 'The measure of a good practice is not how much it extracts. It is how gently it lets you come back. Leave a sentence unfinished. Name the open thread. Put the materials where your future self can see that there is still a way in.' }),
-      p({ type: 'text', value: 'Attention is not a resource to defend from the world. It is a room we can keep arranging — one deliberate object at a time.' }),
+
     ],
   },
   {
