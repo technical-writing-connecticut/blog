@@ -41,7 +41,7 @@ export const posts: Post[] = [
     tags: ['Work', 'Rituals'],
     publishedAt: '2024-06-12',
     updatedAt: '2024-06-12',
-    markdown:
+    markdown: `
      # I Created An API To Learn How To Document One
 
 API Documentation. As I look for my next role in technical writing, I read job posting after job posting looking for someone to create developer-facing documentation. Most of my experience in technical writing, up until now, has had a focus of client-facing documentation. Knowledge base articles. Product announcement emails. I crafted sentence after sentence to make complex software easy to use for non-technical (or at least non-developer) audiences. Always from the User Interface (UI) of the software, never the Application Programming Interface (API). I recently decided to change that, as I had built some side projects, and I could (or at least Replit could) create APIs out of them.
