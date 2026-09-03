@@ -123,17 +123,14 @@ Now that I have shared my experience, I would love to have your feedback. How ha
 
 \`\`\`ts
 const nextStep = 'begin';
-\`\`\``,
+\`\`\`
+`,
   },
-};
+];
+export function getPost(slug?: string) {
+  return posts.find((post) => post.slug === slug);
+}
 
-export function beginSmall(question: string): SmallPractice {
-  return {
-    question,
-    source: 'one useful source',
-    paragraph: 'one honest paragraph',
-  };
-}` },
       heading('The return'),
       p({ type: 'text', value: 'The measure of a good practice is not how much it extracts. It is how gently it lets you come back. Leave a sentence unfinished. Name the open thread. Put the materials where your future self can see that there is still a way in.' }),
       p({ type: 'text', value: 'Attention is not a resource to defend from the world. It is a room we can keep arranging — one deliberate object at a time.' }),
