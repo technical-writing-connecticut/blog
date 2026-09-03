@@ -87,13 +87,14 @@ export const posts: Post[] = [
   To test the less-than-idea use cases, I made my own mistakes to experience the errors for myself. After all, not everything goes according to plan, and someone newer to APIs like me is prone to make mistakes every now and then. For instance, I tried pulling some information using an endpoint that didn't exist and received:
 
   \`\`\` 
-  \`\`\`
-{
+  {
       "error": {
           "code": "NOT_FOUND",
           "message": "The requested public API endpoint does not exist."
       }
   }
+  \`\`\`
+
 
 
   \`\`\` {
