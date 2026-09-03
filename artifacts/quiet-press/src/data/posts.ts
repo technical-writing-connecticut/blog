@@ -121,24 +121,6 @@ export const posts: Post[] = [
 
   Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learn by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io \`
   
-
-      `
-      { type: 'code', language: 'ts', filename: 'twenty-minute-practice.ts', value: `type SmallPractice = {
-  question: string;
-  source: string;
-  paragraph: string;
-};
-
-export function beginSmall(question: string): SmallPractice {
-  return {
-    question,
-    source: 'one useful source',
-    paragraph: 'one honest paragraph',
-  };
-}` },
-      heading('The return'),
-      p({ type: 'text', value: 'The measure of a good practice is not how much it extracts. It is how gently it lets you come back. Leave a sentence unfinished. Name the open thread. Put the materials where your future self can see that there is still a way in.' }),
-      p({ type: 'text', value: 'Attention is not a resource to defend from the world. It is a room we can keep arranging — one deliberate object at a time.' }),
     ],
   },
   {
