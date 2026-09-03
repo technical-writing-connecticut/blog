@@ -41,32 +41,7 @@ export const posts: Post[] = [
     tags: ['Work', 'Rituals'],
     publishedAt: '2024-06-12',
     updatedAt: '2024-06-12',
-    content: [
-      p({ type: 'text', value: 'The best workspaces I have known were not impressive. They were easy to find your way around. A lamp, a clear patch of table, the same notebook opened to the next page. Nothing asked to be admired before the work began.' }),
-      p({ type: 'text', value: 'We tend to speak about attention as if it were an amount we carry around: more on a good day, less on a bad one. I have found it more useful to think of attention as a place. Places have entrances. They have weather. They can be made welcoming.' }),
-      heading('The entrance'),
-      p({ type: 'text', value: 'A place for attention begins with a visible next step. Not a goal, exactly — goals are too far away to be hospitable — but the first physical gesture. Put the document on the desk. Write the question at the top of the page. Open the file you promised yourself you would open.' }),
-      p({ type: 'text', value: 'When the next step is hidden inside a cloud of intentions, beginning feels like a character test. When it is visible, beginning is just a matter of arrival.' }),
-      { type: 'quote', value: 'The room does not need to be beautiful. It needs to make the next kind thing obvious.', cite: 'A note from the margin' },
-      heading('The weather'),
-      p({ type: 'text', value: 'Attention has weather because we are not machines. Some days are bright and quick; some arrive already overcast. A humane system does not require the same output in every climate. It changes the size of the work without changing its dignity.' }),
-      p({ type: 'text', value: 'On a difficult afternoon, I use a twenty-minute version of the practice: one question, one source, one paragraph. It is small enough to start and real enough to leave a mark. Often, that mark is where tomorrow begins.' }),
-      { type: 'code', language: 'ts', filename: 'twenty-minute-practice.ts', value: `type SmallPractice = {
-  question: string;
-  source: string;
-  paragraph: string;
-};
-
-export function beginSmall(question: string): SmallPractice {
-  return {
-    question,
-    source: 'one useful source',
-    paragraph: 'one honest paragraph',
-  };
-}` },
-      heading('The return'),
-      p({ type: 'text', value: 'The measure of a good practice is not how much it extracts. It is how gently it lets you come back. Leave a sentence unfinished. Name the open thread. Put the materials where your future self can see that there is still a way in.' }),
-      p({ type: 'text', value: 'Attention is not a resource to defend from the world. It is a room we can keep arranging — one deliberate object at a time.' }),
+    markdown: `Text`
     ],
   },
   {
