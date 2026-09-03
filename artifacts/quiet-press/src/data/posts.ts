@@ -126,6 +126,10 @@ const nextStep = 'begin';
 \`\`\`
 `,
   },
+  {
+    slug: 'tiny-systems-for-the-long-middle',
+    // remaining post fields
+  },
 ];
 export function getPost(slug?: string) {
   return posts.find((post) => post.slug === slug);
