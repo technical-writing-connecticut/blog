@@ -97,15 +97,17 @@ export const posts: Post[] = [
 
 
 
-  \`\`\` {
+
+  And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
+
+  \`\`\` 
+  {
       "error": {
           "code": "UNAUTHORIZED",
           "message": "A valid API key is required."
-      }
+       }
   }
-   \`\`\`
-
-  And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
+  \`\`\`
   
   ## Lessons
 
