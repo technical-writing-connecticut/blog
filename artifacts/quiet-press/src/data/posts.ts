@@ -143,7 +143,6 @@ Now that I have shared my experience, I would love to have your feedback. How ha
       heading('A system should be smaller than your ambition'),
       p({ type: 'text', value: 'The system is not the project. This distinction matters. If the ritual needs its own dashboard, it has quietly become a second project with a very convincing excuse.' }),
       p({ type: 'text', value: 'For a writing project, my smallest useful loop looks like this: make one visible change, leave one note about what comes next, close the file. In code, the same idea might be a tiny function that makes the next state explicit:' }),
-      p({ type: 'code', language: 'ts', filename: 'next-step.ts', value: `type Session = {\\n  changed: boolean;\\n  next: string;\\n};\\n\\nexport function closeSession(next: string): Session {\\n  return { changed: true, next: next.trim() };\\n}` },
       p({ type: 'text', value: 'It is not clever. That is part of its job. The function gives tomorrow a handle instead of giving today another opportunity to optimize.' }),
       heading('Keep a little evidence'),
       p({ type: 'text', value: 'The middle is easier to cross when you can see that you have crossed some of it. Keep evidence close to the work: a short changelog, a folder of discarded sketches, a list of questions that have become less fuzzy.' }),
