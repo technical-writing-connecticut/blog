@@ -53,15 +53,7 @@ export const posts: Post[] = [
 
     The interesting thing I learned about the API Key is not all APIs call the key by the same variable (so when I went to test a different API in Postman, I was surprised that the parameter had a slightly different name.) The API would have a few endpoints, with the goal of pulling job listings from the app along with retrieving some statistics like the number of jobs aggregated and from which platform they are sourced. I also added an endpoints for the number of jobs available in each location, which, of course, isn't always 100 percent clear. I documented only GET Requests because the goal of the project was to keep the project simple and I was only really intending the API to pull data not to push data because any changes I would need to make (like add new target companies) I would likely do through the agent itself.
 
-    markdown: [
-      '| Method | Endpoint | Purpose |',
-      '| --- | --- | --- |',
-      '| GET | `/api/v1/jobs` | Retrieve and filter current job listings. |',
-      '| GET | `/api/v1/jobs/stats` | Display job totals and platform breakdown. |',
-      '| GET | `/api/v1/locations` | Display the number of jobs available in each location. |',
-      '| GET | `/api/v1/status` | Check the aggregator\'s latest run. |',
-      '| GET | `/api/v1/openapi.json` | Download the API definition. |',
-    ].join('\n'),
+ 
       
   ## Testing The API
 
