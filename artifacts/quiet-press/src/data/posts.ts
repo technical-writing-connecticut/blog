@@ -123,8 +123,6 @@ Now that I have shared my experience, I would love to have your feedback. How ha
   ],
 },
 {
-
-
     ],
   },
   {
@@ -173,25 +171,7 @@ Now that I have shared my experience, I would love to have your feedback. How ha
     ],
   },
   {
-    slug: 'a-note-on-finished-work',
-    title: 'A note on finished work',
-    dek: 'The quiet relief of putting a boundary around something you made.',
-    status: 'published',
-    author: 'Mara Ellison',
-    readTime: 5,
-    tags: ['Making', 'Notes'],
-    publishedAt: '2024-04-21',
-    updatedAt: '2024-04-21',
-    markdown: `Finished is a practical word. It does not mean perfect, definitive, or beyond improvement. It means the work has crossed the line you drew for it and can now be met by someone other than you.
 
-Without that line, making can become an endless, private weather system. Everything remains almost ready. Every decision can be reopened. The work never gets the chance to have a life outside its maker.
-
-## A boundary is part of the craft
-
-Before I begin, I try to write down what "done for now" will look like. Three pages. A clear example. A version that a thoughtful stranger can use. The boundary is not a compromise with quality; it is what gives quality somewhere to land.
-
-Then I stop. I send the thing. I make tea. The small ceremony matters because it teaches the nervous system that completion is safe.`,
-  },
 ];
 
 export function getPost(slug?: string) {
