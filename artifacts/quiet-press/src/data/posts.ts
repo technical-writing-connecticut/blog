@@ -53,14 +53,15 @@ Enter Job Finder. As part of my own job search, I built an aggregation tool that
 
 The interesting thing I learned about the API Key is not all APIs call the key by the same variable (so when I went to test a different API in Postman, I was surprised that the parameter had a slightly different name.) The API would have a few endpoints, with the goal of pulling job listings from the app along with retrieving some statistics like the number of jobs aggregated and from which platform they are sourced. I also added an endpoints for the number of jobs available in each location, which, of course, isn't always 100 percent clear. I documented only GET Requests because the goal of the project was to keep the project simple and I was only really intending the API to pull data not to push data because any changes I would need to make (like add new target companies) I would likely do through the agent itself.
 
-| Method | Endpoint | Purpose |
+markdown: `| Method | Endpoint | Purpose |
 | --- | --- | --- |
 | GET | \`/api/v1/jobs\` | Retrieve and filter current job listings. |
-| GET | \`/api/v1/jobs/stats\` | Display job totals and platform breakdown. | 
+| GET | \`/api/v1/jobs/stats\` | Display job totals and platform breakdown. |
 | GET | \`/api/v1/locations\` | Display the number of jobs available in each location. |
 | GET | \`/api/v1/status\` | Check the aggregator's latest run. |
 | GET | \`/api/v1/openapi.json\` | Download the API definition. |
-
+`,
+      
 ## Testing The API
 
 To test the API, I signed up for Postman. The sign-up process was incredibly simple, and I was up and running in no time. (Side note: When I think of Postman I think of that old song from the 60's or that newer remix mashup that was so popular a few years ago.) It was kind of a thrill to do my first API calls and have the API return data like a job posting from Hacker News instead of reviewing it from my app's User Interface (UI) itself. I am so used to experiencing software from the unsophistcated end user experience: you just click a button or a link and data displays in rows and tables. Having the data returned to me in code was something else:
