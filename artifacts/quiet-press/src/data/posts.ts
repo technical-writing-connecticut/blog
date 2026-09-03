@@ -120,22 +120,9 @@ All in all, I think my first experience with documenting APIs was a success. I t
 * I would also recommend that you let your AI agent guide you but not do the work for you. Having the AI agent outline the docs but not write them ouright (it's fully capable of doing so I instructed it specifically not to write the docs for me.) This approach provides much-needed structure, while it still allows you to do the work.
 
 Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learn by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io \`
-
-\`\`\`ts
-const nextStep = 'begin';
-\`\`\`
-`,
-  },
-  
-  {
-    slug: 'tiny-systems-for-the-long-middle',
-  },
-];
-
-export function getPost(slug?: string) {
-  return posts.find((post) => post.slug ===
-slug);
-}
+  ],
+},
+{
 
 
     ],
