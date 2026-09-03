@@ -14,7 +14,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <span className="flex h-8 w-8 items-center justify-center bg-primary text-primary-foreground transition-transform duration-300 group-hover:rotate-[-8deg]">
             <BookOpen size={16} strokeWidth={1.8} />
           </span>
-          <span className="font-editorial text-[1.65rem] leading-none tracking-[-.035em]">Quiet Press</span>
+          <span className="font-editorial text-[1.65rem] leading-none tracking-[-.035em]">The Kayaking Technical Writer</span>
         </Link>
         <nav className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[.17em] text-muted-foreground md:flex" aria-label="Primary">
           <Link href="/" className={`transition-colors hover:text-foreground ${!isAdmin ? 'text-foreground' : ''}`} data-testid="link-essays">Essays</Link>
