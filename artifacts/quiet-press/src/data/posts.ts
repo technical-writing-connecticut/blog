@@ -34,7 +34,7 @@ export const posts: Post[] = [
   {
     slug: 'attention-is-a-place',
     title: 'I Built An Application Programming Interface (API) to Document One',
-    dek: 'I taught myself how to document an API by creating my own with Replit's Artificial Intelligence (AI) agent.',
+    dek: 'I taught myself how to document an API by creating my own with an agent from Replit.',
     status: 'published',
     author: 'Jay',
     readTime: 7,
