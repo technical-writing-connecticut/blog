@@ -46,7 +46,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <footer className="mx-auto mt-28 flex max-w-[1320px] flex-col gap-5 border-t border-border px-5 py-8 text-[11px] uppercase tracking-[.15em] text-muted-foreground sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-12">
         <p>Quiet Press · Notes for the long middle</p>
         <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-foreground" data-testid="link-footer-github">
-          <Github size={14} /> Built in public
+          <Github size={14} /> Built with GitHub and Replit
         </a>
       </footer>
     </div>
