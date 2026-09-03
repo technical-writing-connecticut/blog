@@ -50,23 +50,23 @@ API Documentation. As I look for my next role in technical writing, I read job p
 
 Enter Job Finder. As part of my own job search, I built an aggregation tool that would search through company websites to scan for open postings for technical writing and adjacent fields. To build the API, I just prompted Replit's AI agent to build the API for the app, and then I pushed the changes to the app to deployment. Easy. Now for the documentation part. I wasn't sure of the best way to document an API so I asked Replit to create an outline for the documentation but not to fill out the details. I ended up with the following sections: Base URL, Authentication, Quick Start, Endpoints, Errors, Rate Limits, Data Freshness, and Contact. To authenticate with the app, users would request and API key from me, but, in reality, the API was really meant for me for documentation purposes, so I created a key for myself. The user (or me) would authenticate this way:
 
-` X-API-Key: YOUR_API_KEY `
+\ ` X-API-Key: YOUR_API_KEY \`
 
 The interesting thing I learned about the API Key is not all APIs call the key by the same variable (so when I went to test a different API in Postman, I was surprised that the parameter had a slightly different name.) The API would have a few endpoints, with the goal of pulling job listings from the app along with retrieving some statistics like the number of jobs aggregated and from which platform they are sourced. I also added an endpoints for the number of jobs available in each location, which, of course, isn't always 100 percent clear. I documented only GET Requests because the goal of the project was to keep the project simple and I was only really intending the API to pull data not to push data because any changes I would need to make (like add new target companies) I would likely do through the agent itself.
 
 | Method | Endpoint | Purpose |
 | --- | --- | --- |
-| GET | `/api/v1/jobs` | Retrieve and filter current job listings. |
-| GET | `/api/v1/jobs/stats` | Display job totals and platform breakdown. | 
-| GET | `/api/v1/locations` | Display the number of jobs available in each location. |
-| GET | `/api/v1/status` | Check the aggregator's latest run. |
-| GET | `/api/v1/openapi.json` | Download the API definition. |
+| GET | \`/api/v1/jobs\` | Retrieve and filter current job listings. |
+| GET | \`/api/v1/jobs/stats\` | Display job totals and platform breakdown. | 
+| GET | \`/api/v1/locations\` | Display the number of jobs available in each location. |
+| GET | \`/api/v1/status\` | Check the aggregator's latest run. |
+| GET | \`/api/v1/openapi.json\` | Download the API definition. |
 
 ## Testing The API
 
 To test the API, I signed up for Postman. The sign-up process was incredibly simple, and I was up and running in no time. (Side note: When I think of Postman I think of that old song from the 60's or that newer remix mashup that was so popular a few years ago.) It was kind of a thrill to do my first API calls and have the API return data like a job posting from Hacker News instead of reviewing it from my app's User Interface (UI) itself. I am so used to experiencing software from the unsophistcated end user experience: you just click a button or a link and data displays in rows and tables. Having the data returned to me in code was something else:
 
-```json
+\`\`\`json
 
 {
     "jobs": [
@@ -89,27 +89,27 @@ To test the API, I signed up for Postman. The sign-up process was incredibly sim
     "pageSize": 1
 }
 
-```
+\`\`\`
 
 To test the less-than-idea use cases, I made my own mistakes to experience the errors for myself. After all, not everything goes according to plan, and someone newer to APIs like me is prone to make mistakes every now and then. For instance, I tried pulling some information using an endpoint that didn't exist and received:
 
-``` {
+\`\`\` {
     "error": {
         "code": "NOT_FOUND",
         "message": "The requested public API endpoint does not exist."
     }
 }
-```
+\`\`\`
 
 And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
 
-``` {
+\`\`\` {
     "error": {
         "code": "UNAUTHORIZED",
         "message": "A valid API key is required."
     }
 }
- ```
+ \`\`\`
 
 ## Lessons
 
