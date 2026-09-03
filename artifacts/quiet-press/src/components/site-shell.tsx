@@ -19,7 +19,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <nav className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[.17em] text-muted-foreground md:flex" aria-label="Primary">
           <Link href="/" className={`transition-colors hover:text-foreground ${!isAdmin ? 'text-foreground' : ''}`} data-testid="link-essays">Essays</Link>
           
-          </a>
+          
           <a href="https://bsky.app/profile/thekayakingwriter.bsky.social" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground" data-testid="link-bluesky">
             BlueSky <ArrowUpRight size={13} strokeWidth={1.7} />
           </a>
