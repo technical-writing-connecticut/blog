@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { Link } from 'wouter';
 import { PostContent } from '@/components/post-content';
 import { DateLabel } from '@/components/site-shell';
+import { WaveDivider } from '@/components/wave-divider';
 import type { Post } from '@/data/posts';
 import { commentsUrl, visibleCommentBody } from '@/lib/github';
 import { useApprovedComments } from '@/hooks/use-comments';
@@ -18,7 +19,7 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
 
   return (
     <section id={sectionId} className="scroll-mt-8">
-      <header className="mx-auto max-w-[720px] border-b border-border px-5 pb-10 pt-12 sm:px-8 sm:pt-16">
+      <header className="mx-auto max-w-[720px] px-5 pb-10 pt-12 sm:px-8 sm:pt-16">
         {showBackLink && onBack ? (
           <button
             type="button"
@@ -47,7 +48,11 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
         <p className="mt-6 text-xs text-muted-foreground">By {post.author} · <DateLabel date={post.publishedAt} /></p>
       </header>
 
-      <div className="border-y border-border bg-card">
+      <div className="mx-auto max-w-[720px] px-5 sm:px-8">
+        <WaveDivider />
+      </div>
+
+      <div className="border-b border-border bg-card">
         <div className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-24">
           <PostContent content={post.content} markdown={post.markdown} />
           <div className="mt-20 border-t border-border pt-8">
