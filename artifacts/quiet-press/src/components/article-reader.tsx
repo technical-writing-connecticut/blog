@@ -66,7 +66,7 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
             <h2 id="comments-heading" className="font-editorial text-4xl tracking-[-.03em]">Leave a note</h2>
             <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">Comments live as GitHub Issues. Note that you must keep <!-- Quiet Press comment for: attention-is-a-place --> in the comment for it to enter moderation.
 
-/p>
+</p>
           </div>
           <MessageCircle size={21} strokeWidth={1.4} className="mt-1 shrink-0 text-primary" />
         </div>
