@@ -21,7 +21,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground" data-testid="link-linkedin">
             LinkedIn <ArrowUpRight size={13} strokeWidth={1.7} />
           </a>
-          <a href="https://bsky.app/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground" data-testid="link-bluesky">
+          <a href="https://bsky.app/profile/thekayakingwriter.bsky.social" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground" data-testid="link-bluesky">
             BlueSky <ArrowUpRight size={13} strokeWidth={1.7} />
           </a>
         </nav>
