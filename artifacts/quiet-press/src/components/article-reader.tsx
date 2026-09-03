@@ -49,7 +49,7 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
 
       <div className="border-y border-border bg-card">
         <div className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-24">
-          <PostContent content={post.content} />
+          <PostContent content={post.content} markdown={post.markdown} />
           <div className="mt-20 border-t border-border pt-8">
             <div className="flex items-center justify-between text-[10px] uppercase tracking-[.16em] text-muted-foreground">
               <span>Filed under {post.tags.join(' / ')}</span>

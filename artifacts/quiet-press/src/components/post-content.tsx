@@ -1,4 +1,5 @@
 import { Check, Copy } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 import type { ContentBlock, InlinePart } from '@/data/posts';
 
@@ -39,7 +40,169 @@ function CodeBlock({ block }: { block: Extract<ContentBlock, { type: 'code' }> }
   );
 }
 
-export function PostContent({ content }: { content: ContentBlock[] }) {
+type MarkdownBlock =
+  | { type: 'paragraph'; value: string }
+  | { type: 'heading'; level: number; value: string }
+  | { type: 'quote'; value: string }
+  | { type: 'unordered-list'; items: string[] }
+  | { type: 'ordered-list'; items: string[] }
+  | { type: 'code'; language: string; value: string }
+  | { type: 'rule' };
+
+function isBlockStart(line: string) {
+  return (
+    /^ {0,3}(#{1,6})\s+/.test(line) ||
+    /^ {0,3}(```+|~~~+)/.test(line) ||
+    /^ {0,3}>\s?/.test(line) ||
+    /^ {0,3}[-*+]\s+/.test(line) ||
+    /^ {0,3}\d+[.)]\s+/.test(line) ||
+    /^ {0,3}([-*_])(?:\s*\1){2,}\s*$/.test(line)
+  );
+}
+
+function parseMarkdown(markdown: string): MarkdownBlock[] {
+  const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
+  const blocks: MarkdownBlock[] = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index];
+    if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    const fence = line.match(/^ {0,3}(```+|~~~+)\s*([\w-]+)?\s*$/);
+    if (fence) {
+      const marker = fence[1];
+      const codeLines: string[] = [];
+      index += 1;
+      while (index < lines.length && !new RegExp(`^ {0,3}${marker}`).test(lines[index])) {
+        codeLines.push(lines[index]);
+        index += 1;
+      }
+      if (index < lines.length) index += 1;
+      blocks.push({ type: 'code', language: fence[2] ?? '', value: codeLines.join('\n') });
+      continue;
+    }
+
+    const headingMatch = line.match(/^ {0,3}(#{1,6})\s+(.+?)\s*#*\s*$/);
+    if (headingMatch) {
+      blocks.push({ type: 'heading', level: headingMatch[1].length, value: headingMatch[2] });
+      index += 1;
+      continue;
+    }
+
+    if (/^ {0,3}([-*_])(?:\s*\1){2,}\s*$/.test(line)) {
+      blocks.push({ type: 'rule' });
+      index += 1;
+      continue;
+    }
+
+    if (/^ {0,3}>\s?/.test(line)) {
+      const quoteLines: string[] = [];
+      while (index < lines.length && /^ {0,3}>\s?/.test(lines[index])) {
+        quoteLines.push(lines[index].replace(/^ {0,3}>\s?/, '').trim());
+        index += 1;
+      }
+      blocks.push({ type: 'quote', value: quoteLines.join(' ') });
+      continue;
+    }
+
+    const unorderedMatch = line.match(/^ {0,3}[-*+]\s+(.+)/);
+    if (unorderedMatch) {
+      const items: string[] = [];
+      while (index < lines.length) {
+        const itemMatch = lines[index].match(/^ {0,3}[-*+]\s+(.+)/);
+        if (!itemMatch) break;
+        items.push(itemMatch[1]);
+        index += 1;
+      }
+      blocks.push({ type: 'unordered-list', items });
+      continue;
+    }
+
+    const orderedMatch = line.match(/^ {0,3}\d+[.)]\s+(.+)/);
+    if (orderedMatch) {
+      const items: string[] = [];
+      while (index < lines.length) {
+        const itemMatch = lines[index].match(/^ {0,3}\d+[.)]\s+(.+)/);
+        if (!itemMatch) break;
+        items.push(itemMatch[1]);
+        index += 1;
+      }
+      blocks.push({ type: 'ordered-list', items });
+      continue;
+    }
+
+    const paragraphLines = [line.trim()];
+    index += 1;
+    while (index < lines.length && lines[index].trim() && !isBlockStart(lines[index])) {
+      paragraphLines.push(lines[index].trim());
+      index += 1;
+    }
+    blocks.push({ type: 'paragraph', value: paragraphLines.join(' ') });
+  }
+
+  return blocks;
+}
+
+function safeHref(href: string) {
+  return /^(https?:|mailto:|\/|#)/i.test(href);
+}
+
+function renderInline(value: string, keyPrefix: string): ReactNode[] {
+  const tokenPattern = /(`[^`\n]+`|\[[^\]]+\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)|\*\*[^*\n]+\*\*|__[^_\n]+__|\*[^*\n]+\*|_[^_\n]+_)/g;
+  const parts: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = tokenPattern.exec(value))) {
+    if (match.index > lastIndex) parts.push(value.slice(lastIndex, match.index));
+    const token = match[0];
+    const key = `${keyPrefix}-${match.index}`;
+    if (token.startsWith('`')) {
+      parts.push(<code key={key} className="inline-code">{token.slice(1, -1)}</code>);
+    } else if (token.startsWith('[')) {
+      const linkText = token.match(/^\[([^\]]+)\]/)?.[1] ?? token;
+      const href = match[2] ?? '#';
+      parts.push(safeHref(href) ? <a key={key} href={href} target="_blank" rel="noreferrer">{renderInline(linkText, key)}</a> : linkText);
+    } else if (token.startsWith('**') || token.startsWith('__')) {
+      parts.push(<strong key={key}>{renderInline(token.slice(2, -2), key)}</strong>);
+    } else {
+      parts.push(<em key={key}>{renderInline(token.slice(1, -1), key)}</em>);
+    }
+    lastIndex = match.index + token.length;
+  }
+
+  if (lastIndex < value.length) parts.push(value.slice(lastIndex));
+  return parts;
+}
+
+function MarkdownContent({ markdown }: { markdown: string }) {
+  const blocks = parseMarkdown(markdown);
+  return (
+    <div className="article-copy">
+      {blocks.map((block, index) => {
+        const key = `markdown-${block.type}-${index}`;
+        if (block.type === 'paragraph') return <p key={key}>{renderInline(block.value, key)}</p>;
+        if (block.type === 'heading') {
+          const Heading = block.level === 1 ? 'h2' : block.level === 2 ? 'h2' : 'h3';
+          return <Heading key={key}>{renderInline(block.value, key)}</Heading>;
+        }
+        if (block.type === 'quote') return <blockquote key={key}><p>{renderInline(block.value, key)}</p></blockquote>;
+        if (block.type === 'unordered-list') return <ul key={key}>{block.items.map((item, itemIndex) => <li key={`${key}-${itemIndex}`}>{renderInline(item, `${key}-${itemIndex}`)}</li>)}</ul>;
+        if (block.type === 'ordered-list') return <ol key={key}>{block.items.map((item, itemIndex) => <li key={`${key}-${itemIndex}`}>{renderInline(item, `${key}-${itemIndex}`)}</li>)}</ol>;
+        if (block.type === 'rule') return <hr key={key} />;
+        return <CodeBlock key={key} block={{ type: 'code', language: block.language || 'text', value: block.value }} />;
+      })}
+    </div>
+  );
+}
+
+export function PostContent({ content, markdown }: { content?: ContentBlock[]; markdown?: string }) {
+  if (markdown !== undefined) return <MarkdownContent markdown={markdown} />;
+  if (!content) return null;
   return (
     <div className="article-copy">
       {content.map((block, index) => {
