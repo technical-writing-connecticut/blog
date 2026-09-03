@@ -41,86 +41,32 @@ export const posts: Post[] = [
     tags: ['Work', 'Rituals'],
     publishedAt: '2024-06-12',
     updatedAt: '2024-06-12',
-    markdown: `# I Created An API To Learn How To Document One
+    content: [
+      p({ type: 'text', value: 'The best workspaces I have known were not impressive. They were easy to find your way around. A lamp, a clear patch of table, the same notebook opened to the next page. Nothing asked to be admired before the work began.' }),
+      p({ type: 'text', value: 'We tend to speak about attention as if it were an amount we carry around: more on a good day, less on a bad one. I have found it more useful to think of attention as a place. Places have entrances. They have weather. They can be made welcoming.' }),
+      heading('The entrance'),
+      p({ type: 'text', value: 'A place for attention begins with a visible next step. Not a goal, exactly — goals are too far away to be hospitable — but the first physical gesture. Put the document on the desk. Write the question at the top of the page. Open the file you promised yourself you would open.' }),
+      p({ type: 'text', value: 'When the next step is hidden inside a cloud of intentions, beginning feels like a character test. When it is visible, beginning is just a matter of arrival.' }),
+      { type: 'quote', value: 'The room does not need to be beautiful. It needs to make the next kind thing obvious.', cite: 'A note from the margin' },
+      heading('The weather'),
+      p({ type: 'text', value: 'Attention has weather because we are not machines. Some days are bright and quick; some arrive already overcast. A humane system does not require the same output in every climate. It changes the size of the work without changing its dignity.' }),
+      p({ type: 'text', value: 'On a difficult afternoon, I use a twenty-minute version of the practice: one question, one source, one paragraph. It is small enough to start and real enough to leave a mark. Often, that mark is where tomorrow begins.' }),
+      { type: 'code', language: 'ts', filename: 'twenty-minute-practice.ts', value: `type SmallPractice = {
+  question: string;
+  source: string;
+  paragraph: string;
+};
 
-    API Documentation. As I look for my next role in technical writing, I read job posting after job posting looking for someone to create developer-facing documentation. Most of my experience in technical writing, up until now, has had a focus of client-facing documentation. Knowledge base articles. Product announcement emails. I crafted sentence after sentence to make complex software easy to use for non-technical (or at least non-developer) audiences. Always from the User Interface (UI) of the software, never the Application Programming Interface (API). I recently decided to change that, as I had built some side projects, and I could (or at least Replit could) create APIs out of them.
-
-    ## Keys and Endpoints
-
-    Enter Job Finder. As part of my own job search, I built an aggregation tool that would search through company websites to scan for open postings for technical writing and adjacent fields. To build the API, I just prompted Replit's AI agent to build the API for the app, and then I pushed the changes to the app to deployment. Easy. Now for the documentation part. I wasn't sure of the best way to document an API so I asked Replit to create an outline for the documentation but not to fill out the details. I ended up with the following sections: Base URL, Authentication, Quick Start, Endpoints, Errors, Rate Limits, Data Freshness, and Contact. To authenticate with the app, users would request and API key from me, but, in reality, the API was really meant for me for documentation purposes, so I created a key for myself. The user (or me) would authenticate this way:
-
-    \` X-API-Key: YOUR_API_KEY \`
-
-    The interesting thing I learned about the API Key is not all APIs call the key by the same variable (so when I went to test a different API in Postman, I was surprised that the parameter had a slightly different name.) The API would have a few endpoints, with the goal of pulling job listings from the app along with retrieving some statistics like the number of jobs aggregated and from which platform they are sourced. I also added an endpoints for the number of jobs available in each location, which, of course, isn't always 100 percent clear. I documented only GET Requests because the goal of the project was to keep the project simple and I was only really intending the API to pull data not to push data because any changes I would need to make (like add new target companies) I would likely do through the agent itself.
-
-    markdown: [
-      '| Method | Endpoint | Purpose |',
-      '| --- | --- | --- |',
-      '| GET | `/api/v1/jobs` | Retrieve and filter current job listings. |',
-      '| GET | `/api/v1/jobs/stats` | Display job totals and platform breakdown. |',
-      '| GET | `/api/v1/locations` | Display the number of jobs available in each location. |',
-      '| GET | `/api/v1/status` | Check the aggregator\'s latest run. |',
-      '| GET | `/api/v1/openapi.json` | Download the API definition. |',
-    ].join('\n'),
-      
-  ## Testing The API
-
-  To test the API, I signed up for Postman. The sign-up process was incredibly simple, and I was up and running in no time. (Side note: When I think of Postman I think of that old song from the 60's or that newer remix mashup that was so popular a few years ago.) It was kind of a thrill to do my first API calls and have the API return data like a job posting from Hacker News instead of reviewing it from my app's User Interface (UI) itself. I am so used to experiencing software from the unsophistcated end user experience: you just click a button or a link and data displays in rows and tables. Having the data returned to me in code was something else:
-
-  \`\`\`json
-
-  {
-      "jobs": [
-          {
-              "id": 236,
-              "title": "Technical content developer",
-              "company": "Klara Systems",
-              "platform": "hackernews",
-              "location": "Remote",
-              "isRemote": true,
-              "salaryRaw": null,
-              "url": "https://news.ycombinator.com/item?id=49161851",
-              "postedAt": "2026-08-03T21:43:16.000Z",
-              "scrapedAt": "2026-08-19T20:04:53.339Z",
-              "searchTerm": "technical content developer"
-          }
-       ],
-      "total": 1,
-      "page": 1,
-      "pageSize": 1
-  }
-
-  \`\`\`
-
-  To test the less-than-idea use cases, I made my own mistakes to experience the errors for myself. After all, not everything goes according to plan, and someone newer to APIs like me is prone to make mistakes every now and then. For instance, I tried pulling some information using an endpoint that didn't exist and received:
-
-  \`\`\` {
-      "error": {
-          "code": "NOT_FOUND",
-          "message": "The requested public API endpoint does not exist."
-      }
-  }
-  \`\`\`
-
-  And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
-
-  \`\`\` {
-      "error": {
-          "code": "UNAUTHORIZED",
-          "message": "A valid API key is required."
-      }
-  }
-   \`\`\`
-
-  ## Lessons
-
-  All in all, I think my first experience with documenting APIs was a success. I think if I had to take any lessons away from it:
-
-  * I would recommend that anyone who wants to gain technical skills beyond what they learned in previous roles is to simply build something for your self. And then document it. It's always more interesting to document something that you have an interest in and documenting a job search API was a perfect fit for someone looking for a job.
-  * I would also recommend that you let your AI agent guide you but not do the work for you. Having the AI agent outline the docs but not write them ouright (it's fully capable of doing so I instructed it specifically not to write the docs for me.) This approach provides much-needed structure, while it still allows you to do the work.
-
-  Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learn by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io \`
-  
+export function beginSmall(question: string): SmallPractice {
+  return {
+    question,
+    source: 'one useful source',
+    paragraph: 'one honest paragraph',
+  };
+}` },
+      heading('The return'),
+      p({ type: 'text', value: 'The measure of a good practice is not how much it extracts. It is how gently it lets you come back. Leave a sentence unfinished. Name the open thread. Put the materials where your future self can see that there is still a way in.' }),
+      p({ type: 'text', value: 'Attention is not a resource to defend from the world. It is a room we can keep arranging — one deliberate object at a time.' }),
     ],
   },
   {
