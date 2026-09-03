@@ -41,8 +41,7 @@ export const posts: Post[] = [
     tags: ['Work', 'Rituals'],
     publishedAt: '2024-06-12',
     updatedAt: '2024-06-12',
-    markdown: `Text`
-    ],
+    markdown: `Text`,
   },
   {
     slug: 'tiny-systems-for-the-long-middle',
