@@ -8,7 +8,7 @@ export default function EditorPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = getPost(slug);
   if (!post) return <SiteShell><main className="mx-auto max-w-2xl px-5 py-28"><p className="text-primary">404 / file not found</p><h1 className="mt-4 font-editorial text-6xl">No such note.</h1><Link href="/admin" className="mt-8 inline-flex border-b border-primary pb-1 text-sm" data-testid="link-back-editorial">Return to editorial</Link></main></SiteShell>;
-  const source = `# ${post.title}\n\n${post.dek}\n\n_This preview reflects the local published manifest._`;
+  const source = post.markdown ?? `# ${post.title}\n\n${post.dek}\n\n_This preview reflects the local published manifest._`;
   return (
     <SiteShell>
       <main className="mx-auto max-w-[1050px] px-5 pb-20 pt-12 sm:px-8 sm:pt-20">
