@@ -33,7 +33,7 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
 export const posts: Post[] = [
   {
     slug: 'attention-is-a-place',
-    title: 'Attention is a place',
+    title: 'Attention is a place 2',
     dek: 'A small argument for making the work easier to return to.',
     status: 'published',
     author: 'Mara Ellison',
