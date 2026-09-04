@@ -116,7 +116,7 @@ export const posts: Post[] = [
   - I would recommend that anyone who wants to gain technical skills beyond what they learned in previous roles is to simply build something for your self. And then document it. It's always more interesting to document something that you have an interest in and documenting a job search API was a perfect fit for someone looking for a job.
   * I would also recommend that you let your AI agent guide you but not do the work for you. Having the AI agent outline the docs but not write them ouright (it's fully capable of doing so I instructed it specifically not to write the docs for me.) This approach provides much-needed structure, while it still allows you to do the work.
 
-  Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learn by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io \``.,
+  Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learn by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io. \``,
   },
 ];
 
