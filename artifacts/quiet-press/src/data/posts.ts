@@ -62,7 +62,7 @@ export const posts: Post[] = [
 
     \` X-API-Key: YOUR_API_KEY \`
 
-    The interesting thing I learned about the API key is not all APIs keys have the same name. When I went to test a different API in Postman, I was surprised that the key had a slightly different name. The API would have a few endpoints, with the goal of pulling job listings from the app along with retrieving some statistics like the number of jobs aggregated and from which platform they are sourced. I also added an endpoints for the number of jobs available in each location, which, of course, isn't always 100 percent clear. I documented only GET Requests because the goal of the project was to keep the project simple and I was only really intending the API to pull data not to push data because any changes I would need to make (like add new target companies) I would likely do through the agent itself.
+    The API would have a few endpoints, with the goal of pulling job listings from the app along with retrieving some statistics like the number of jobs aggregated and from which platform they are sourced. I also added an endpoints for the number of jobs available in each location, which, of course, isn't always 100 percent clear. I documented only GET Requests because the goal of the project was to keep the project simple and I was only really intending the API to pull data not to push data because any changes I would need to make (like add new target companies) I would likely do through the agent itself.
 
  
       
