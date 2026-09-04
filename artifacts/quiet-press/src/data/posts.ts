@@ -122,7 +122,7 @@ export const posts: Post[] = [
   
   ## Lessons
 
-  All in all, I think my first experience with documenting APIs was a success. If I had to take any lessons away from it, they would include the following:
+  All in all, I think my first experience with documenting APIs was a success. If I had to take lessons away from it, they would include the following:
 
   - I would recommend that anyone who wants to gain technical skills beyond what they learned in previous roles is to simply build something for yourself. (This is also advice I have heard echoed through Write the Docs meetups). And then document what you built. It's always more fun to document something that you have an interest in and documenting a job search API was a perfect fit for someone looking for a job.
   * I would also recommend that you let your AI agent guide you but not do the work for you. Have the AI agent outline the docs but not write them outright. As it is fully capable of writing the dos for me, I instructed it specifically not to do so. This approach provides much-needed structure, while it still allows you to do the work.
