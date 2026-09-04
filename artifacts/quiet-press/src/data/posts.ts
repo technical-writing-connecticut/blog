@@ -68,7 +68,7 @@ export const posts: Post[] = [
       
   ## Testing The API
 
-  To test the API, I signed up for Postman. The sign-up process was incredibly simple, and I was up and running in no time. (Side note: When I think of Postman, I think of that old song from the 60's.) It was kind of a thrill to do my first API calls and have the API return data like a job posting from Hacker News. I am so used to experiencing software from the end user experience: you just click a button or a link and data displays in rows and tables. Having the data returned to me in code was something else:
+  To test the API, I signed up for Postman. The sign-up process was incredibly simple, and I was up and running in no time. (Side note: When I think of Postman, I think of that old song from the 60's.) It was kind of a thrill to do my first API calls and have the API return data like a job posting from Hacker News. I am so used to experiencing software from the end user experience: you just click a button or a link, and data displays in rows and tables. Having the data returned to me in code was something else:
 
   \`\`\`json
 
