@@ -334,7 +334,7 @@ body { background: hsl(var(--background)); }
 .article-copy em { font-style: normal; }
 .article-copy strong { font-weight: 500; color: hsl(var(--foreground)); }
 .article-copy a { color: hsl(var(--primary)); text-decoration: underline; text-decoration-color: hsl(var(--primary) / .35); text-underline-offset: .18em; }
-.article-copy ol { margin: 1.5rem 0 2rem; padding-left: 1.4rem; }
+.article-copy ol { margin: 1.5rem 0 2rem; padding-left: 1.4rem; list-style-type: decimal; }
 .article-copy hr { margin: 3rem 0; border: 0; border-top: 1px solid hsl(var(--border)); }
 .inline-code {
   border: 1px solid hsl(var(--border));
@@ -365,7 +365,7 @@ body { background: hsl(var(--background)); }
   letter-spacing: .15em;
   text-transform: uppercase;
 }
-.article-copy ul { margin: 1.5rem 0 2rem; padding-left: 1.4rem; }
+.article-copy ul { margin: 1.5rem 0 2rem; padding-left: 1.4rem; list-style-type: disc; }
 .article-copy li { margin: .55rem 0; padding-left: .5rem; }
 .article-copy li::marker { color: hsl(var(--primary)); }
 @media (max-width: 640px) {
