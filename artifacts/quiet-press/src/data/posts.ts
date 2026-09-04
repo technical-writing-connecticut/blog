@@ -109,7 +109,7 @@ export const posts: Post[] = [
 
 
 
-  And, of course, I tried submitting a GET Request without providing my key and the result was as expected:
+  And, of course, I tried submitting a GET request without providing my key and the result was as expected:
 
   \`\`\` 
   {
