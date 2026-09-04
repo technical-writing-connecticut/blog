@@ -51,12 +51,12 @@ type MarkdownBlock =
 
 function isBlockStart(line: string) {
   return (
-    /^ {0,3}(#{1,6})\s+/.test(line) ||
-    /^ {0,3}(```+|~~~+)/.test(line) ||
-    /^ {0,3}>\s?/.test(line) ||
-    /^ {0,3}[-*+]\s+/.test(line) ||
-    /^ {0,3}\d+[.)]\s+/.test(line) ||
-    /^ {0,3}([-*_])(?:\s*\1){2,}\s*$/.test(line)
+    /^ {0,6}(#{1,6})\s+/.test(line) ||
+    /^ {0,6}(```+|~~~+)/.test(line) ||
+    /^ {0,6}>\s?/.test(line) ||
+    /^ {0,6}[-*+](?:\s+|(?=\S))/.test(line) ||
+    /^ {0,6}\d+[.)]\s+/.test(line) ||
+    /^ {0,6}([-*_])(?:\s*\1){2,}\s*$/.test(line)
   );
 }
 
@@ -72,12 +72,12 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
-    const fence = line.match(/^ {0,3}(```+|~~~+)\s*([\w-]+)?\s*$/);
+    const fence = line.match(/^ {0,6}(```+|~~~+)\s*([\w-]+)?\s*$/);
     if (fence) {
       const marker = fence[1];
       const codeLines: string[] = [];
       index += 1;
-      while (index < lines.length && !new RegExp(`^ {0,3}${marker}`).test(lines[index])) {
+      while (index < lines.length && !new RegExp(`^ {0,6}${marker}`).test(lines[index])) {
         codeLines.push(lines[index]);
         index += 1;
       }
@@ -86,34 +86,34 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
-    const headingMatch = line.match(/^ {0,3}(#{1,6})\s+(.+?)\s*#*\s*$/);
+    const headingMatch = line.match(/^ {0,6}(#{1,6})\s+(.+?)\s*#*\s*$/);
     if (headingMatch) {
       blocks.push({ type: 'heading', level: headingMatch[1].length, value: headingMatch[2] });
       index += 1;
       continue;
     }
 
-    if (/^ {0,3}([-*_])(?:\s*\1){2,}\s*$/.test(line)) {
+    if (/^ {0,6}([-*_])(?:\s*\1){2,}\s*$/.test(line)) {
       blocks.push({ type: 'rule' });
       index += 1;
       continue;
     }
 
-    if (/^ {0,3}>\s?/.test(line)) {
+    if (/^ {0,6}>\s?/.test(line)) {
       const quoteLines: string[] = [];
-      while (index < lines.length && /^ {0,3}>\s?/.test(lines[index])) {
-        quoteLines.push(lines[index].replace(/^ {0,3}>\s?/, '').trim());
+      while (index < lines.length && /^ {0,6}>\s?/.test(lines[index])) {
+        quoteLines.push(lines[index].replace(/^ {0,6}>\s?/, '').trim());
         index += 1;
       }
       blocks.push({ type: 'quote', value: quoteLines.join(' ') });
       continue;
     }
 
-    const unorderedMatch = line.match(/^ {0,3}[-*+]\s+(.+)/);
+    const unorderedMatch = line.match(/^ {0,6}[-*+](?:\s+|(?=\S))(.+)/);
     if (unorderedMatch) {
       const items: string[] = [];
       while (index < lines.length) {
-        const itemMatch = lines[index].match(/^ {0,3}[-*+]\s+(.+)/);
+        const itemMatch = lines[index].match(/^ {0,6}[-*+](?:\s+|(?=\S))(.+)/);
         if (!itemMatch) break;
         items.push(itemMatch[1]);
         index += 1;
@@ -122,11 +122,11 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
-    const orderedMatch = line.match(/^ {0,3}\d+[.)]\s+(.+)/);
+    const orderedMatch = line.match(/^ {0,6}\d+[.)]\s+(.+)/);
     if (orderedMatch) {
       const items: string[] = [];
       while (index < lines.length) {
-        const itemMatch = lines[index].match(/^ {0,3}\d+[.)]\s+(.+)/);
+        const itemMatch = lines[index].match(/^ {0,6}\d+[.)]\s+(.+)/);
         if (!itemMatch) break;
         items.push(itemMatch[1]);
         index += 1;
