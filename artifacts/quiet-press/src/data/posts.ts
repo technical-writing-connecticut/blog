@@ -39,8 +39,8 @@ export const posts: Post[] = [
     author: 'Jay',
     readTime: 7,
     tags: ['Docs', 'APIs'],
-    publishedAt: '2026-09-02',
-    updatedAt: '2026-09-02',
+    publishedAt: '2026-09-04',
+    updatedAt: '2026-09-04',
     markdown: `
 
     API Documentation. As I look for my next role in technical writing, I read job posting after job posting looking for someone to create developer-facing documentation. Most of my experience in technical writing, up until now, has had a focus of client-facing documentation. Knowledge base articles. Product announcement emails. I crafted sentence after sentence to make complex software easy to use for non-technical (or at least non-developer) audiences. Always from the user interface, never from the API. I recently decided to change that, as I had built some side projects, and I could (or at least Replit could) create APIs out of them.
