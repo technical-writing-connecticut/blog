@@ -47,7 +47,7 @@ export const posts: Post[] = [
 
   ## Keys and Endpoints
 
-    Enter Job Finder. As part of my own job search, I built an aggregation tool to scan company websites for open technical writing, instructional design, developer relations, and adjacent roles. To build the API, I just prompted Replit's AI agent to build the API for the app, and then I pushed the changes to the app. Easy. Now for the documentation part. I wasn't sure of the best way to document an API, so I asked Replit to create an outline for the documentation but not to fill out the details. I ended up with the following sections:
+    Enter Job Finder. As part of my own job search, I built an aggregation tool to scan company websites for open technical writing, instructional design, developer relations, and adjacent roles. To build the API, I just prompted Replit's AI agent to create one, and then I simply deployed the app again. Easy. Now for the documentation part. I wasn't sure of the best way to document an API, so I asked Replit to create an outline for the documentation but not to fill out the details. I ended up with the following sections:
     
     * Base URL
     * Authentication
