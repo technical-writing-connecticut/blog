@@ -58,7 +58,7 @@ export const posts: Post[] = [
     * Data Freshness
     * Contact
     
-    To authenticate with the app, a user would request an API key from me, but, in reality, the API was really meant for me for documentation purposes, so I created a key for myself. The user (or I) would authenticate this way:
+    To authenticate with the app, a user would request an API key from me, but, in reality, the API was really meant for my documentation purposes, so I created a key for myself. The user (or I) would authenticate this way:
 
     \` X-API-Key: YOUR_API_KEY \`
 
