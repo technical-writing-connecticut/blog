@@ -33,6 +33,40 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
 export const posts = [
 
   {
+    slug: 'technical-writers-builders',
+    title: 'Why Technical Writers Should Be Builders',
+    dek: 'I taught myself how to document an API by creating my own as a side project with an agent from Replit.',
+    status: 'published',
+    author: 'Jay',
+    readTime: 7,
+    tags: ['Docs', 'APIs'],
+    publishedAt: '2026-09-04',
+    updatedAt: '2026-09-04',
+    markdown: `Why Technical Writers Should Be Builders
+
+I remember watching a video back in high school of Kurt Vonnegut explaining the craft of writing. He equated it to the role of an architect building a house. Technical writers, or documentarians as some of us call ourselves, are natural architects. We plan and structure documents. We decide what information the end user (or a developer) needs to know –
+and in the order that makes the most sense. Some information might live best in bullet point lists or tables. Other information might live best in paragraphs. Some information, if contained in a screenshot, might not need a written description at all. But before we even begin building our documentation, others have often built the software. Product decided which features to build and in which order. Developers decided how those features would get built and with which technologies.
+
+But for the past few years, and especially now, technical writers who do not have coding experience, or anyone who is not a software developer really, can build their own software with just a prompt. But many of the skills that technical writers use to build documentation directly translate to software development. Which is exactly why I think more technical writers should do. Don’t get me wrong. I don’t expect to build the next Facebook or Google. Whatever software I build will break long before I even get to 10,000 users. I don’t see Artificial Intelligence (AI) as replacing the people that decide *how* to build software. We need software developers and architects for that. But it does a pretty good job at creating the Minimum Viable Product (MVP) or the prototype version. And it has just enough know-how to take any idea and bring it to life –
+even if your home page will show a 404 error if your app goes viral.
+
+So, a few reasons why technical writers should be builders:
+
+*	Technical writers have a product mindset, which translates to software development. Many technical writers are, or have been, on product teams. It is, or was, a common home for documentation. Immersed in these teams, many technical writers have a product mindset. We focus on solving real customer problems and think about things like user adoption. Our focus on building documentation is what does a customer need from our company’s software and how will they use it. (Or how they will misuse it!) This skill directly translates to building software – deciding what product managers sometimes do: What does my customer need out of my software, and which features should I build for them?
+*	Technical writers know how to organize information and how people want to access it, which is key for data-driven apps. We already decide what steps and procedures customers need to understand reports and dashboards. We are well-adept to translate this skill into which data points they need to review on reports and dashboards and how they should be organized to provide the best user experience. When I built a rowing analytics app, for example, I decided which data points to include on which page. 
+*	Software development provides the ability to grow your technical writing chops. Some technical writers have experience in a particular area: For example, someone like me might typically write product announcements or knowledge base pages. But that person might like to grow their developer documentation portfolio. A perfect way to do that is to build your own app and then write your own developer documentation. One advantage to this approach is that an MVP is less complex that a finished commercial software product, so it is naturally easier to wrap your head around the documentation and start with a less complex product. Technical writers can take it one step further by deciding which software to use for documentation and which Content Management System (CMS) displays it.
+*	Lastly, software development can be fun and enjoyable – like a hobby. Creating your own software might serve a personal need. For example, I searched around for a directory that would tell me which hotels have rowing machines in their fitness centers. The complicated thing is manufacturers typically list that information, but these listings typically only include hotels that have that brand of equipment. I created a website that would be brand agnostic and list all rowing machines, regardless of manufacturer. And it would be something that I could use when planning my next trip.
+
+Getting started is never easier than before but keeping on going better does get costly. So, if you do decide to start developing your software with Large Language Models (LLMs), choose your model carefully. (Do you really need the latest and greatest model?) Some platforms like Replit have started offering free prompts (up to a certain degree, I think), which avoids spending a few dollars on a prompt that takes a couple of minutes of compute. 
+
+And, I would also recommend planning out your prompts, with the LLM help. Ask an LLM how it would build and structure an app before you start building. Consider which features you would like in your MVP, and which features might be able to wait until a later build. That avoids having to redo or restructure your software when you do end up building, which means you end up prompting less and spending less on tokens.
+
+Have you built software using LLMs? Why do you think that technical writers are well-suited to build software with LLMs? What challenges do technical writers have when building with LLMs? What models have you used to build? How have you saved on compute costs? Let me know in the comments or reach out to me at \`jay@technicalwriting.io\`.`,
+
+  },
+  
+
+  {
     slug: 'attention-is-a-place',
     title: 'I Built An API to Document One',
     dek: 'I taught myself how to document an API by creating my own as a side project with an agent from Replit.',
@@ -130,38 +164,7 @@ export const posts = [
 
   Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learning by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io\`.`,
   },
-  {
-    slug: 'technical-writers-builders',
-    title: 'Why Technical Writers Should Be Builders',
-    dek: 'I taught myself how to document an API by creating my own as a side project with an agent from Replit.',
-    status: 'published',
-    author: 'Jay',
-    readTime: 7,
-    tags: ['Docs', 'APIs'],
-    publishedAt: '2026-09-04',
-    updatedAt: '2026-09-04',
-    markdown: `Why Technical Writers Should Be Builders
 
-I remember watching a video back in high school of Kurt Vonnegut explaining the craft of writing. He equated it to the role of an architect building a house. Technical writers, or documentarians as some of us call ourselves, are natural architects. We plan and structure documents. We decide what information the end user (or a developer) needs to know –
-and in the order that makes the most sense. Some information might live best in bullet point lists or tables. Other information might live best in paragraphs. Some information, if contained in a screenshot, might not need a written description at all. But before we even begin building our documentation, others have often built the software. Product decided which features to build and in which order. Developers decided how those features would get built and with which technologies.
-
-But for the past few years, and especially now, technical writers who do not have coding experience, or anyone who is not a software developer really, can build their own software with just a prompt. But many of the skills that technical writers use to build documentation directly translate to software development. Which is exactly why I think more technical writers should do. Don’t get me wrong. I don’t expect to build the next Facebook or Google. Whatever software I build will break long before I even get to 10,000 users. I don’t see Artificial Intelligence (AI) as replacing the people that decide *how* to build software. We need software developers and architects for that. But it does a pretty good job at creating the Minimum Viable Product (MVP) or the prototype version. And it has just enough know-how to take any idea and bring it to life –
-even if your home page will show a 404 error if your app goes viral.
-
-So, a few reasons why technical writers should be builders:
-
-*	Technical writers have a product mindset, which translates to software development. Many technical writers are, or have been, on product teams. It is, or was, a common home for documentation. Immersed in these teams, many technical writers have a product mindset. We focus on solving real customer problems and think about things like user adoption. Our focus on building documentation is what does a customer need from our company’s software and how will they use it. (Or how they will misuse it!) This skill directly translates to building software – deciding what product managers sometimes do: What does my customer need out of my software, and which features should I build for them?
-*	Technical writers know how to organize information and how people want to access it, which is key for data-driven apps. We already decide what steps and procedures customers need to understand reports and dashboards. We are well-adept to translate this skill into which data points they need to review on reports and dashboards and how they should be organized to provide the best user experience. When I built a rowing analytics app, for example, I decided which data points to include on which page. 
-*	Software development provides the ability to grow your technical writing chops. Some technical writers have experience in a particular area: For example, someone like me might typically write product announcements or knowledge base pages. But that person might like to grow their developer documentation portfolio. A perfect way to do that is to build your own app and then write your own developer documentation. One advantage to this approach is that an MVP is less complex that a finished commercial software product, so it is naturally easier to wrap your head around the documentation and start with a less complex product. Technical writers can take it one step further by deciding which software to use for documentation and which Content Management System (CMS) displays it.
-*	Lastly, software development can be fun and enjoyable – like a hobby. Creating your own software might serve a personal need. For example, I searched around for a directory that would tell me which hotels have rowing machines in their fitness centers. The complicated thing is manufacturers typically list that information, but these listings typically only include hotels that have that brand of equipment. I created a website that would be brand agnostic and list all rowing machines, regardless of manufacturer. And it would be something that I could use when planning my next trip.
-
-Getting started is never easier than before but keeping on going better does get costly. So, if you do decide to start developing your software with Large Language Models (LLMs), choose your model carefully. (Do you really need the latest and greatest model?) Some platforms like Replit have started offering free prompts (up to a certain degree, I think), which avoids spending a few dollars on a prompt that takes a couple of minutes of compute. 
-
-And, I would also recommend planning out your prompts, with the LLM help. Ask an LLM how it would build and structure an app before you start building. Consider which features you would like in your MVP, and which features might be able to wait until a later build. That avoids having to redo or restructure your software when you do end up building, which means you end up prompting less and spending less on tokens.
-
-Have you built software using LLMs? Why do you think that technical writers are well-suited to build software with LLMs? What challenges do technical writers have when building with LLMs? What models have you used to build? How have you saved on compute costs? Let me know in the comments or reach out to me at \`jay@technicalwriting.io\`.`,
-
-  },
 ];
 
 export function getPost(slug?: string) {
