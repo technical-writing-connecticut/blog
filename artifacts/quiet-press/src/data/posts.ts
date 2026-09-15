@@ -127,7 +127,7 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
   * I would also recommend that you let your AI agent guide you but not do the work for you. Have the AI agent outline the docs but not write them outright. As it is fully capable of writing the dos for me, I instructed it specifically not to do so. This approach provides much-needed structure, while it still allows you to do the work.
 
   Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learning by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io\`.`,
-  },
+ },
 ];
 
   {
