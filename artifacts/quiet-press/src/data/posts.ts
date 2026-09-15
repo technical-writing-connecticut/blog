@@ -128,7 +128,6 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
 
   Now that I have shared my experience, I would love to have your feedback. How have you learned how to document APIs? Have you created an app with an API to learn how to create developer documentation? If you are already an API expert, how have you learned something new for technical writing? Are you learning by doing like me, or do you prefer to dive in the docs, a book, or a tutorial? Reach out to me at \`jay@technicalwriting.io\`.`,
   },
-];
 
   {
     slug: 'technical-writers-builders',
