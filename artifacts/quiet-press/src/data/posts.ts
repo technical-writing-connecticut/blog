@@ -159,7 +159,7 @@ Getting started is never easier than before but keeping on going better does get
 
 And, I would also recommend planning out your prompts, with the LLM help. Ask an LLM how it would build and structure an app before you start building. Consider which features you would like in your MVP, and which features might be able to wait until a later build. That avoids having to redo or restructure your software when you do end up building, which means you end up prompting less and spending less on tokens.
 
-Have you built software using LLMs? Why do you think that technical writers are well-suited to build software with LLMs? What challenges do technical writers have when building with LLMs? What models have you used to build? How have you saved on compute costs? Let me know in the comments or reach out to me at `jay@technicalwriting.io`.`
+Have you built software using LLMs? Why do you think that technical writers are well-suited to build software with LLMs? What challenges do technical writers have when building with LLMs? What models have you used to build? How have you saved on compute costs? Let me know in the comments or reach out to me at `jay@technicalwriting.io\`.`
 
   },
 ];
