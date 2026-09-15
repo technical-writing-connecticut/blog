@@ -133,8 +133,8 @@ export const posts: Post[] = [
 
 export const posts: Post[] = [
   {
-    slug: 'attention-is-a-place',
-    title: 'I Built An API to Document One',
+    slug: 'technical-writers-builders',
+    title: 'Why Technical Writers Should Be Builders',
     dek: 'I taught myself how to document an API by creating my own as a side project with an agent from Replit.',
     status: 'published',
     author: 'Jay',
