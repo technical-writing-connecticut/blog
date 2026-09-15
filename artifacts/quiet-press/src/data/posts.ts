@@ -130,7 +130,6 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
   },
 ];
 
-export const posts: Post[] = [
   {
     slug: 'technical-writers-builders',
     title: 'Why Technical Writers Should Be Builders',
