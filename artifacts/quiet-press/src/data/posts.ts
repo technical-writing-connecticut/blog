@@ -30,7 +30,6 @@ export type Post = {
 const p = (...parts: InlinePart[]): ContentBlock => ({ type: 'paragraph', parts });
 const heading = (value: string): ContentBlock => ({ type: 'heading', value });
 
-export const posts: Post[] = [
   {
     slug: 'attention-is-a-place',
     title: 'I Built An API to Document One',
