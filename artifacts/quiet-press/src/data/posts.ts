@@ -35,16 +35,14 @@ export const posts = [
   {
     slug: 'technical-writers-builders',
     title: 'Why Technical Writers Should Be Builders',
-    dek: 'I taught myself how to document an API by creating my own as a side project with an agent from Replit.',
+    dek: 'Many of the skills that technical writers use to build documentation directly translate to software development.',
     status: 'published',
     author: 'Jay',
     readTime: 7,
     tags: ['Docs', 'APIs'],
-    publishedAt: '2026-09-04',
-    updatedAt: '2026-09-04',
-    markdown: `Why Technical Writers Should Be Builders
-
-I remember watching a video back in high school of Kurt Vonnegut explaining the craft of writing. He equated it to the role of an architect building a house. Technical writers, or documentarians as some of us call ourselves, are natural architects. We plan and structure documents. We decide what information the end user (or a developer) needs to know –
+    publishedAt: '2026-09-15',
+    updatedAt: '2026-09-15',
+    markdown: `I remember watching a video back in high school of Kurt Vonnegut explaining the craft of writing. He equated it to the role of an architect building a house. Technical writers, or documentarians as some of us call ourselves, are natural architects. We plan and structure documents. We decide what information the end user (or a developer) needs to know –
 and in the order that makes the most sense. Some information might live best in bullet point lists or tables. Other information might live best in paragraphs. Some information, if contained in a screenshot, might not need a written description at all. But before we even begin building our documentation, others have often built the software. Product decided which features to build and in which order. Developers decided how those features would get built and with which technologies.
 
 But for the past few years, and especially now, technical writers who do not have coding experience, or anyone who is not a software developer really, can build their own software with just a prompt. But many of the skills that technical writers use to build documentation directly translate to software development. Which is exactly why I think more technical writers should do. Don’t get me wrong. I don’t expect to build the next Facebook or Google. Whatever software I build will break long before I even get to 10,000 users. I don’t see Artificial Intelligence (AI) as replacing the people that decide *how* to build software. We need software developers and architects for that. But it does a pretty good job at creating the Minimum Viable Product (MVP) or the prototype version. And it has just enough know-how to take any idea and bring it to life –
