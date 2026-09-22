@@ -1,5 +1,6 @@
-import { ArrowLeft, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Link2, MessageCircle } from 'lucide-react';
 import { Link } from 'wouter';
+import { useEffect } from 'react';
 import { PostContent } from '@/components/post-content';
 import { DateLabel } from '@/components/site-shell';
 import { WaveDivider } from '@/components/wave-divider';
@@ -16,6 +17,16 @@ type ArticleReaderProps = {
 
 export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), sectionId = 'reader' }: ArticleReaderProps) {
   const { comments, configured, isLoading, error } = useApprovedComments(post.slug);
+  const permalink = getPermalink(post, sectionId);
+
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(decodeURIComponent(hash))?.scrollIntoView({ block: 'start' });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [post.slug]);
 
   return (
     <section id={sectionId} className="scroll-mt-8">
@@ -45,7 +56,12 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
         </div>
         <h1 className="max-w-2xl font-editorial text-4xl leading-[1.08] tracking-[-.04em] sm:text-6xl">{post.title}</h1>
         <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">{post.dek}</p>
-        <p className="mt-6 text-xs text-muted-foreground">By {post.author} · <DateLabel date={post.publishedAt} /></p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
+          <span>By {post.author} · <DateLabel date={post.publishedAt} /></span>
+          <a href={permalink} className="inline-flex items-center gap-1.5 border-b border-primary/40 pb-0.5 text-primary transition-colors hover:border-primary" data-testid={`link-permalink-${post.slug}`}>
+            <Link2 size={13} strokeWidth={1.8} /> Link to this essay
+          </a>
+        </div>
       </header>
 
       <div className="mx-auto max-w-[720px] px-5 sm:px-8">
@@ -54,7 +70,7 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
 
       <div className="border-b border-border bg-card">
         <div className="mx-auto max-w-[720px] px-5 py-16 sm:px-8 sm:py-24">
-          <PostContent content={post.content} markdown={post.markdown} />
+          <PostContent content={post.content} markdown={post.markdown} anchorPrefix={post.slug} />
           <div className="mt-20 border-t border-border pt-8">
             <div className="flex items-center justify-between text-[10px] uppercase tracking-[.16em] text-muted-foreground">
               <span>Filed under {post.tags.join(' / ')}</span>
@@ -101,4 +117,13 @@ export function ArticleReader({ post, onBack, showBackLink = Boolean(onBack), se
       </section>
     </section>
   );
+}
+
+function getPermalink(post: Post, sectionId: string) {
+  const baseUrl = new URL(import.meta.env.BASE_URL, window.location.origin);
+  if (sectionId.startsWith('article-')) {
+    baseUrl.hash = sectionId;
+    return baseUrl.toString();
+  }
+  return new URL(`post/${post.slug}`, baseUrl).toString();
 }
