@@ -49,6 +49,35 @@ type MarkdownBlock =
   | { type: 'code'; language: string; value: string }
   | { type: 'rule' };
 
+function slugifyHeading(value: string) {
+  const slug = value
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return slug || 'section';
+}
+
+function nextHeadingId(value: string, prefix: string | undefined, counts: Map<string, number>) {
+  const base = slugifyHeading(value);
+  const count = counts.get(base) ?? 0;
+  counts.set(base, count + 1);
+  return `${prefix ? `${prefix}-` : ''}${base}${count > 0 ? `-${count + 1}` : ''}`;
+}
+
+function HeadingAnchor({ level, id, children }: { level: number; id: string; children: ReactNode }) {
+  const Heading = level === 1 || level === 2 ? 'h2' : 'h3';
+  return (
+    <Heading id={id} className="group/heading scroll-mt-8">
+      <a href={`#${id}`} className="heading-anchor">
+        {children}
+        <span aria-hidden="true" className="heading-anchor-mark">#</span>
+      </a>
+    </Heading>
+  );
+}
+
 function isBlockStart(line: string) {
   const candidate = line.trimStart();
   return (
@@ -181,16 +210,17 @@ function renderInline(value: string, keyPrefix: string): ReactNode[] {
   return parts;
 }
 
-function MarkdownContent({ markdown }: { markdown: string }) {
+function MarkdownContent({ markdown, anchorPrefix }: { markdown: string; anchorPrefix?: string }) {
   const blocks = parseMarkdown(markdown);
+  const headingCounts = new Map<string, number>();
   return (
     <div className="article-copy">
       {blocks.map((block, index) => {
         const key = `markdown-${block.type}-${index}`;
         if (block.type === 'paragraph') return <p key={key}>{renderInline(block.value, key)}</p>;
         if (block.type === 'heading') {
-          const Heading = block.level === 1 ? 'h2' : block.level === 2 ? 'h2' : 'h3';
-          return <Heading key={key}>{renderInline(block.value, key)}</Heading>;
+          const id = nextHeadingId(block.value, anchorPrefix, headingCounts);
+          return <HeadingAnchor key={key} level={block.level} id={id}>{renderInline(block.value, key)}</HeadingAnchor>;
         }
         if (block.type === 'quote') return <blockquote key={key}><p>{renderInline(block.value, key)}</p></blockquote>;
         if (block.type === 'unordered-list') return <ul key={key}>{block.items.map((item, itemIndex) => <li key={`${key}-${itemIndex}`}>{renderInline(item, `${key}-${itemIndex}`)}</li>)}</ul>;
@@ -202,14 +232,18 @@ function MarkdownContent({ markdown }: { markdown: string }) {
   );
 }
 
-export function PostContent({ content, markdown }: { content?: ContentBlock[]; markdown?: string }) {
-  if (markdown !== undefined) return <MarkdownContent markdown={markdown} />;
+export function PostContent({ content, markdown, anchorPrefix }: { content?: ContentBlock[]; markdown?: string; anchorPrefix?: string }) {
+  if (markdown !== undefined) return <MarkdownContent markdown={markdown} anchorPrefix={anchorPrefix} />;
   if (!content) return null;
+  const headingCounts = new Map<string, number>();
   return (
     <div className="article-copy">
       {content.map((block, index) => {
         if (block.type === 'paragraph') return <p key={`paragraph-${index}`}><InlineText parts={block.parts} /></p>;
-        if (block.type === 'heading') return <h2 key={`heading-${index}`}>{block.value}</h2>;
+        if (block.type === 'heading') {
+          const id = nextHeadingId(block.value, anchorPrefix, headingCounts);
+          return <HeadingAnchor key={`heading-${index}`} level={2} id={id}>{block.value}</HeadingAnchor>;
+        }
         if (block.type === 'quote') return <blockquote key={`quote-${index}`}><p>{block.value}</p>{block.cite && <cite>— {block.cite}</cite>}</blockquote>;
         if (block.type === 'list') return <ul key={`list-${index}`}>{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
         return <CodeBlock key={`code-${index}`} block={block} />;
