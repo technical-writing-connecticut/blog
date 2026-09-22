@@ -65,7 +65,7 @@ Have you built software using LLMs? Why do you think that technical writers are 
   
 
   {
-    slug: 'attention-is-a-place',
+    slug: 'built-api-to-document',
     title: 'I Built An API to Document One',
     dek: 'I taught myself how to document an API by creating my own as a side project with an agent from Replit.',
     status: 'published',
