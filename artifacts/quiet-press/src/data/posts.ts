@@ -32,6 +32,48 @@ const heading = (value: string): ContentBlock => ({ type: 'heading', value });
 
 export const posts = [
 
+    {
+    slug: 'technical-writers-builders',
+    title: 'Designing And Developing API Docs',
+    dek: 'Tips for documenting APIs that might be valuable for anyone just getting their start.',
+    status: 'published',
+    author: 'Jay',
+    readTime: 7,
+    tags: ['Docs', 'APIs', `Docsify`],
+    publishedAt: '2026-10-01',
+    updatedAt: '2026-10-01',
+    markdown: `
+
+My API documentation journey continues. It started with API docs that I designed for a job posting aggregator, which I developed as a web app and an API with Replit. I then created another set of docs for an entirely different side project – a hotel rowing machine directory web app and an API (also made with Replit). This latter example was far simpler for a few reasons. Fewer endpoints. No authentication. I also had the experience of documenting an API before, which made the design a bit easier the second time around.
+
+These experiences have been a bit, well, magical, but in a very tangible way. There is a rewarding feedback loop of testing your own docs after you write them. Open Postman, call an endpoint, get a response. Try another endpoint. And then repeat the process. This is a very basic example of developer-facing documentation, I know, but for someone with more of a non-technical business background, this experience has been somewhat rewarding as I deepen my knowledge of APIs.
+
+Throughout these experiences, I learned a few lessons that made it easier to design API docs. These are by no means an exhaustive list. Someone with extensive developer experience will likely know much more — and have much more sophisticated takeaways. And, naturally, as I experiment with more APIs, I will learn more about how they work and how to best document them. But, coming from the perspective of a beginner, here are some tips for documenting APIs that might be valuable for anyone just getting their start:
+
+__Install a theme for your documentation if you are using a GitHub repository.__ Earlier this summer, I taught myself Markdown and created documentation with very basic pages — essentially plain text with some headings and bullet points. Markdown was very easy to learn — I picked it up in a weekend — especially for someone with some (limited) Hypertext Markup Language (HTML) experience. The documentation looked OK, but it wasn’t well organized or designed. To enhance the aesthetics, I searched for a theme and landed on Docsify.
+
+The Docsify theme has a couple of advantages from the very practical to the very aesthetic:
+
+*	**Navigation**. Links on the left panel of the page connect the reader directly to the sub-sections of your documentation (for example, the endpoints section). As users peruse these options, they can easily find the information they need to get started with the API and get the most out of your platform — without endlessly scrolling through your docs.
+*	**Asthetics**. Great design aesthetic. For example, the code blocks have a light gray background, and the font is almost typewriter-like. I also like that the short blocks for email addresses and URLs have a similar gray background with orange text. This kind of design really pops and is more sophisticated than standard black and white text.
+*	**Clarity**. Clear design for tables. Each cell has a light gray border that delineates each data point from another. At a glance, this text is much easier to read. Each column also has a clear header with a bolded title, which makes it easy to find the information that you need, whether it’s the purpose of a particular endpoint or a description of a query parameter.
+
+Aside from themes, here are a few more lessons I learned from designing the docs for two APIs I created as side projects:
+
+* **Use AI platforms to check your work and get a baseline.** These tools did an amazing job at providing edits, such as catching grammar and style errors. It also did a fairly good job at catching inconsistencies between values I listed in tables and the OpenAPI response I received from my app. For someone who doesn’t have a ton of experience in the field, but who is constantly growing their knowledge, it provided a good baseline of what to expect. Furthermore, you can ask these platforms to rate your documentation out of 10 so you can have an idea of when your material is portfolio-ready. 
+
+* **Don’t display your API keys in the documentation.** This is advice that I think I actually received from Claude or ChatGPT. API keys are private, plain and simple. Don’t include them in your documentation because they could pose a security risk. If you want to include some content about API keys, keep your content generic. Instead of including an actual API key of course, make sure you use some filler content like \` Your-API-Key Here \`. Check thoroughly throughout your document because you never know where your API key might have been included.
+
+* **Ensure that you are using proper Markdown format beyond the JSON response samples.** Throughout your documentation, there are ample opportunities to make important text stand out. Properly format key information, such as endpoints, parameters, URLs and email addresses, like code snippets, so they stand out. Sometimes this information resides inside tables, like endpoints and parameters, so check through your documents to ensure that you don’t miss it. This kind of formatting makes the important information easy to find and also differentiates code from text.
+
+With my (growing) experience documenting APIs, I learned how to effectively install a theme, use Claude and ChatGPT to help determine when docs are ready to be shared, keep API keys safe, and use proper Markdown format when needed.
+
+However, I know I have so much more to learn about designing API docs. Once you start exploring a subject for the first time, you learn how much more there is to know and that is exactly where I am at.
+
+Now, I am interested in your thoughts. Have you ever documented an API? What are some lessons that you learned when you were just starting out? What is the one thing you wished you knew when you started documenting APIs? Open a GitHub issue and let me know in the comments.    
+    ` 
+  },
+
   {
     slug: 'technical-writers-builders',
     title: 'Why Technical Writers Should Be Builders',
